@@ -15,7 +15,7 @@ cligj==0.7.2
 colorama==0.4.5
 distlib==0.3.6
 dj-database-url==1.0.0
-Django==4.1
+Django==4.1.2
 django-core==1.4.1
 django-heroku==0.3.1
 djangorestframework==3.13.1
