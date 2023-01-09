@@ -31,3 +31,29 @@ class Employee(models.Model):
 
     def __str__(self):
         return "%s %s %s" %(self.first_name, self.last_name, self.phone)
+
+class Leave(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    leave_type = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    reason = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.leave_type
+
+class Attendance(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    date = models.DateField()
+    status = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.status
+
+class Manager(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    dept = models.ForeignKey(Department, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.employee.first_name
+        
